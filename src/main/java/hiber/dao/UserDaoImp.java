@@ -32,7 +32,7 @@ public class UserDaoImp implements UserDao {
     @SuppressWarnings("unchecked")
     public User getUserBySeriesAndId(Long id, Integer series) {
         TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(
-                "FROM  spring_hiber u INNER JOIN cars c on u.car_id = c.id WHERE c.series = :series and c.id = :id");
+                "FROM  User u INNER JOIN Car c on u.car_id = c.id WHERE c.series = :series and c.id = :id");
         query.setParameter("series", series);
         query.setParameter("id", id);
 

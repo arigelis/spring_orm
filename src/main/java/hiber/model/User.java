@@ -19,7 +19,7 @@ public class User {
     @Column(name = "email")
     private String email;
     //fetch = FetchType.LAZY, mappedBy = "spring_hiber"
-    @OneToOne(mappedBy = "spring_hiber",cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "car_id")
     private Car car;
 
@@ -30,7 +30,6 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.car = car;
     }
 
     public Long getId() {
