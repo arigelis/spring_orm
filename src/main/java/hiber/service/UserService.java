@@ -9,5 +9,5 @@ public interface UserService {
 
     List<User> listUsers();
 
-    User getUserBySeriesAndId(Long id, Integer series);
+    User getUserById(Long id);
 }

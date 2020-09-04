@@ -33,12 +33,9 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public User getUserBySeriesAndId(Long id, Integer series) {
-        //return userDao.getUserBySeriesAndId(id, series);
-
+    public User getUserById(Long id) {
         Car car = carService.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Car is not present"));
-
         return car.getUser();
     }
 }
