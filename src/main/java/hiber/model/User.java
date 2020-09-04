@@ -19,9 +19,10 @@ public class User {
     @Column(name = "email")
     private String email;
     //fetch = FetchType.LAZY, mappedBy = "spring_hiber"
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "car_id")
-    private Car car;
+    /*@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "car_id")*/
+//    @OneToOne(mappedBy = "user")
+//    private Car car;
 
     public User() {
     }
@@ -64,13 +65,13 @@ public class User {
         this.email = email;
     }
 
-    public Car getCar() {
-        return car;
-    }
-
-    public void setCar(Car car) {
-        this.car = car;
-    }
+//    public Car getCar() {
+//        return car;
+//    }
+//
+//    public void setCar(Car car) {
+//        this.car = car;
+//    }
 
     @Override
     public String toString() {
@@ -79,7 +80,7 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", car=" + car +
+//                ", car=" + car +
                 '}';
     }
 }
