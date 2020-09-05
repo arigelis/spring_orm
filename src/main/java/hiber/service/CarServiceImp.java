@@ -32,4 +32,9 @@ public class CarServiceImp implements CarService {
         return carDao.findById(id);
     }
 
+    @Override
+    public Optional<Car> findByIdAndSeries(Long id, Integer series) {
+        return carDao.findByIdAndSeries(id, series);
+    }
+
 }

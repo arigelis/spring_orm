@@ -10,4 +10,6 @@ public interface UserService {
     List<User> listUsers();
 
     User getUserById(Long id);
+
+    User getUserByCarIdAndCarSeries(Long id, Integer series);
 }

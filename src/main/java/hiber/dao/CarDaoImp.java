@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.TypedQuery;
+import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,6 +36,18 @@ public class CarDaoImp implements CarDao {
         Session session = sessionFactory.getCurrentSession();
 
         return Optional.ofNullable(session.get(Car.class, id));
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public Optional<Car> findByIdAndSeries(Long id, Integer series) {
+        Session session = sessionFactory.getCurrentSession();
+
+        TypedQuery<Car> query = sessionFactory.getCurrentSession()
+                .createQuery("from Car where id = ? and series = ?")
+                .setParameter(0, id)
+                .setParameter(1, series);
+        return Optional.ofNullable(query.getSingleResult());
     }
 
 }

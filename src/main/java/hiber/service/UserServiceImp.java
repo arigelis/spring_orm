@@ -38,4 +38,11 @@ public class UserServiceImp implements UserService {
                 .orElseThrow(() -> new IllegalArgumentException("Car is not present"));
         return car.getUser();
     }
+
+    @Override
+    public User getUserByCarIdAndCarSeries(Long id, Integer series) {
+        Car car = carService.findByIdAndSeries(id, series)
+                .orElseThrow(() -> new IllegalArgumentException("Car is not present"));
+        return car.getUser();
+    }
 }
