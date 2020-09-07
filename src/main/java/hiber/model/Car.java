@@ -16,9 +16,9 @@ public class Car {
     @Column(name = "series")
     private Integer series;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private User user;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "user_id")
+//    private User user;
 
     public Car() {
     }
@@ -28,13 +28,13 @@ public class Car {
         this.series = series;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public Long getId() {
         return id;

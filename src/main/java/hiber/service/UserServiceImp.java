@@ -1,8 +1,6 @@
 package hiber.service;
 
-import hiber.dao.CarDao;
 import hiber.dao.UserDao;
-import hiber.model.Car;
 import hiber.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +15,8 @@ public class UserServiceImp implements UserService {
     @Autowired
     private UserDao userDao;
 
-    @Autowired
-    private CarService carService;
+//    @Autowired
+//    private CarService carService;
 
     @Transactional
     @Override
@@ -34,15 +32,11 @@ public class UserServiceImp implements UserService {
 
     @Override
     public User getUserById(Long id) {
-        Car car = carService.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Car is not present"));
-        return car.getUser();
+        return userDao.findById(id).orElseThrow(() -> new IllegalArgumentException("Car is not present"));
     }
 
     @Override
     public User getUserByCarIdAndCarSeries(Long id, Integer series) {
-        Car car = carService.findByIdAndSeries(id, series)
-                .orElseThrow(() -> new IllegalArgumentException("Car is not present"));
-        return car.getUser();
+        return userDao.findByIdAndSeries(id, series).orElseThrow(() -> new IllegalArgumentException("Car is not present"));
     }
 }
